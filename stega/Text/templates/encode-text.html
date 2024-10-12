@@ -1,0 +1,55 @@
+{% extends 'text.html' %}
+{% block title %} 870-DEMO {% endblock %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid mx-5 my-5 rounded-lg">
+    <div class="container">
+        <!-- <h1 class="display-4 text-monospace">Encode</h1>
+        <hr> -->
+        <!--Form start-->
+        <form action="/text/encode-result" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">📃 Write your secret message:</label>
+                <textarea class="form-control" rows="5" name="message" id="message-textarea"></textarea>
+                <br>
+                <label for="text-file">📄 Or upload a text file:</label>
+                <input type="file" name="text_file" accept=".txt" class="form-control-file" id="text-file">
+                <br>
+                <label>🔐 Choose your encryption method:</label>
+                <div>
+                    <input type="radio" id="aes" name="encryption" value="AES" checked>
+                    <label for="aes">AES</label>
+
+                    <input type="radio" id="des" name="encryption" value="DES">
+                    <label for="des">DES</label>
+
+                    <input type="radio" id="twofish" name="encryption" value="Twofish">
+                    <label for="twofish">Twofish</label>
+
+                    <input type="radio" id="blowfish" name="encryption" value="Blowfish">
+                    <label for="blowfish">Blowfish</label>
+                </div>
+                <br>
+                <label for="exampleFormControlFile1">🖼️ Choose your secret Image file:</label>
+                <input type="file" name="image" accept="image/*" class="form-control-file" id="imageInput" required
+                    onchange="previewImage(event)">
+                <br>
+                <img id="imagePreview" src="#" alt="图片预览" style="max-width:500px; display:none;">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!--Form end-->
+    </div>
+</div>
+
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+{% endblock %}
