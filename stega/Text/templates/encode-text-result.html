@@ -2,7 +2,6 @@
 {% block title %} 870-DEMO {% endblock %}
 {% block content %}
 <div class="container mx-5 my-5">
-    <!-- <h1>Encode Result</h1> -->
     <div class="card bg-light">
         <div class="container-fluid">
             <!-- {% for key, value in result.items() %}
@@ -13,11 +12,11 @@
                     {% endif %}
                 {% endfor %} -->
 
-            {% if file %}
+            {% if image_file %}
             <h5 class="my-2">
                 Your Image:
             </h5>
-            <img src="static/{{ file.filename }}" class="mb-2" style="width:100px; height:100px" />
+            <img src="static/{{ image_file.filename }}" class="mb-2" style="width:100px; height:100px" />
             {% else %}
             <p> No image selected</p>
             <br>
@@ -41,8 +40,16 @@
                 Encrypted Image:
             </h5>
             <div class="col">
-                <!-- <img class="row mb-1" src="static/encrypted_text_image.png" style="width:100px; height:100px"/> -->
+                <!-- <img class="row mb-1" src="static/encrypted_text_image.png" style="width:100px; height:100px" /> -->
                 <a class="btn btn-dark btn-sm row" href="static/encrypted_text_image.png" download>Download</a>
+            </div>
+            <h5 class="my-2">
+                Your Key:
+            </h5>
+            <div class="card mb-2">
+                <div class="card-body">
+                    {{ key }}
+                </div>
             </div>
             <br>
             {% else %}

@@ -13,8 +13,8 @@
                     {% endif %}
                 {% endfor %} -->
 
-            {% if file %}
-            <!-- <img src="static/{{ file.filename }}" style="width:100px; height:100px" /> -->
+            {% if image_file %}
+            <img src="static/{{ image_file.filename }}" style="width:100px; height:100px" />
             {% else %}
             <p> No image selected</p>
             {% endif %}

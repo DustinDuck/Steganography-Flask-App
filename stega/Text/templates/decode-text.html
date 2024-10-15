@@ -9,8 +9,10 @@
         <form action="/text/decode-result" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleFormControlFile1">🖼️ Choose your encrypted Image file:</label>
-                <input type="file" name="image" accept="image/*" class="form-control-file" id="exampleFormControlFile1"
-                    required>
+                <input type="file" name="image_file" accept="image/*" class="form-control-file"
+                    id="exampleFormControlFile1" required>
+                <label for="exampleFormControlFile1">🔐 Enter your key:</label>
+                <input type="text" name="key" class="form-control" id="key" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
